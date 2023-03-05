@@ -1,0 +1,25 @@
+<form [formGroup]="fm">
+
+<label>Tile
+<input formControlName="title"/>
+</label>
+<label formGroupName="name">
+FirstName
+<!-- formControlName-->
+<input formControlName="firstName" />
+</label>
+<label>
+    Last name
+    <!-- formcontrol -->
+    <input [formControl]="fm.controls.name.controls.lastName" />
+</label>
+<label>
+hobby
+<!--Form Array -->
+<ul *ngFor="let cc of fm.controls.hobby.controls">
+    <li><input [formControl]="cc"/></li>
+</ul>
+</label>
+<pre>{{ fm.value | json }}</pre>
+</form>
+
